@@ -278,12 +278,12 @@ const FeedbackDialog = (props: {
     <Show when={props.isOpen}>
       <div class="fixed inset-0 rounded-lg flex items-center justify-center backdrop-blur-sm z-50" style={{ background: 'rgba(0, 0, 0, 0.4)' }}>
         <div class="p-6 rounded-lg shadow-lg max-w-md w-full text-center mx-4 font-sans" style={{ background: 'white', color: 'black' }}>
-          <h2 class="text-xl font-semibold mb-4 flex justify-center items-center">Your Feedback</h2>
+          <h2 class="text-xl font-semibold mb-4 flex justify-center items-center">Votre avis</h2>
 
           <textarea
             class="w-full p-2 border border-gray-300 rounded-md mb-4"
             rows={4}
-            placeholder="Please provide your feedback..."
+            placeholder="Veuillez nous faire part de vos commentaires..."
             value={props.feedbackValue}
             onInput={(e) => props.setFeedbackValue(e.target.value)}
           />
@@ -1903,7 +1903,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                 <>
                   <div class="flex items-center gap-1 px-5">
                     <SparklesIcon class="w-4 h-4" />
-                    <span class="text-sm text-gray-700">Try these prompts</span>
+                    <span class="text-sm text-gray-700">Essaies ces questions</span>
                   </div>
                   <div class="w-full flex flex-row flex-wrap px-5 py-[10px] gap-2">
                     <For each={[...followUpPrompts()]}>
@@ -1930,13 +1930,16 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                   {recordingNotSupported() ? (
                     <div class="w-full flex items-center justify-between p-4 border border-[#eeeeee]">
                       <div class="w-full flex items-center justify-between gap-3">
-                        <span class="text-base">To record audio, use modern browsers like Chrome or Firefox that support audio recording.</span>
+                        <span class="text-base">
+                          Pour enregistrer des données audio, utilisez des navigateurs modernes comme Chrome ou Firefox qui prennent en charge
+                          l'enregistrement audio..
+                        </span>
                         <button
                           class="py-2 px-4 justify-center flex items-center bg-red-500 text-white rounded-md"
                           type="button"
                           onClick={() => onRecordingCancelled()}
                         >
-                          Okay
+                          Ok
                         </button>
                       </div>
                     </div>
@@ -1955,11 +1958,11 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                           <CircleDotIcon color="red" />
                         </span>
                         <span>{elapsedTime() || '00:00'}</span>
-                        {isLoadingRecording() && <span class="ml-1.5">Sending...</span>}
+                        {isLoadingRecording() && <span class="ml-1.5">Envoi...</span>}
                       </div>
                       <div class="flex items-center">
                         <CancelButton buttonColor={props.textInput?.sendButtonColor} type="button" class="m-0" on:click={onRecordingCancelled}>
-                          <span style={{ 'font-family': 'Poppins, sans-serif' }}>Send</span>
+                          <span style={{ 'font-family': 'Poppins, sans-serif' }}>Envoyer</span>
                         </CancelButton>
                         <SendButton
                           sendButtonColor={props.textInput?.sendButtonColor}
@@ -1968,7 +1971,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                           class="m-0"
                           on:click={onRecordingStopped}
                         >
-                          <span style={{ 'font-family': 'Poppins, sans-serif' }}>Send</span>
+                          <span style={{ 'font-family': 'Poppins, sans-serif' }}>Envoyer</span>
                         </SendButton>
                       </div>
                     </div>
